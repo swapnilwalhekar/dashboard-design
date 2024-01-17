@@ -1,30 +1,19 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #1d2634;
-  color: #9e9ea4;
-  font-family: 'Montserrat', sans-serif;
+  background-color: rgb(239, 239, 239);
+  color: #333333;
+}
+
+.close-icon {
+  display: none;
 }
 
 .icon {
   vertical-align: middle;
   line-height: 1px;
   font-size: 20px;
-}
-.icon_header {
-  vertical-align: middle;
-  line-height: 1px;
-  font-size: 26px;
-}
-.icon, .icon_header {
-  margin-right: 5px;
-}
-
-.close_icon {
-  color: red;
-  margin-left: 30px;
-  margin-top: 10px;
-  cursor: pointer;
+  padding: 2px 7px;
 }
 
 .grid-container {
@@ -32,12 +21,12 @@ body {
   grid-template-columns: 260px 1fr 1fr 1fr;
   grid-template-rows: 0.2fr 3fr;
   grid-template-areas:
-    'sidebar header header header'
-    'sidebar main main main';
+    "sidebar header header header"
+    "sidebar main main main";
   height: 100vh;
 }
 
-/* Header  */
+/*-----------------Header-----------------*/
 .header {
   grid-area: header;
   height: 60px;
@@ -51,13 +40,13 @@ body {
 .menu-icon {
   display: none;
 }
-/* End Header  */
+/*-----------------End Header-----------------*/
 
-/* Sidebar  */
+/*-----------------Sidebar-----------------*/
 #sidebar {
   grid-area: sidebar;
   height: 100%;
-  background-color: #263043;
+  background-color: #e2e2e2;
   overflow-y: auto;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
@@ -67,13 +56,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px 0px 30px;
+  padding: 15px 30px 0 30px;
   margin-bottom: 30px;
 }
 
-.sidebar-title > span {
+/* .sidebar-title > span {
   display: none;
-}
+} */
 
 .sidebar-brand {
   margin-top: 15px;
@@ -87,8 +76,8 @@ body {
 }
 
 .sidebar-list-item {
-  padding: 20px 20px 20px 20px;
-  font-size: 18px;
+  padding: 20px;
+  font-size: 20px;
 }
 
 .sidebar-list-item:hover {
@@ -98,29 +87,22 @@ body {
 
 .sidebar-list-item > a {
   text-decoration: none;
-  color: #9e9ea4;
+  color: #6f6f6f;
 }
 
 .sidebar-responsive {
   display: inline !important;
   position: absolute;
-  /*
-    we want the z-index of the sidebar higher so that
-    the charts are not showing over the sidebar 
-    on small screens
-  */
   z-index: 12 !important;
 }
+/*-----------------Sidebar end-----------------*/
 
-/* End Sidebar  */
-
-
-/* Main  */  
+/*-----------------Main-----------------*/
 .main-container {
   grid-area: main;
   overflow-y: auto;
   padding: 20px 20px;
-  color: rgba(255, 255, 255, 0.95);
+  color: rgb(3 91 142 / 95%);
 }
 
 .main-title {
@@ -138,25 +120,25 @@ body {
 .card {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 8px 15px;
   border-radius: 5px;
 }
 
 .card:first-child {
-  background-color: #2962ff;
+  background-color: rgb(231, 134, 127);
 }
 
 .card:nth-child(2) {
-  background-color: #ff6d00;
+  background-color: rgb(180, 127, 231);
 }
 
 .card:nth-child(3) {
-  background-color: #2e7d32;
+  background-color: rgb(97, 232, 88);
 }
 
 .card:nth-child(4) {
-  background-color: #d50000;
+  background-color: rgb(228, 197, 83);
 }
 
 .card-inner {
@@ -176,19 +158,15 @@ body {
   margin-top: 60px;
   height: 300px;
 }
+/*-----------------Main end-----------------*/
 
-/* End Main  */
-
-
-/* Medium <= 992px */
-  
+/* for medium device <= 992px */
 @media screen and (max-width: 992px) {
   .grid-container {
+    display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 0.2fr 3fr;
-    grid-template-areas:
-      'header'
-      'main';
+    grid-template-areas: "header" "main";
   }
 
   #sidebar {
@@ -199,12 +177,16 @@ body {
     display: inline;
   }
 
-  .sidebar-title > span {
-    display: inline;
+  .close-icon {
+    display: flex;
+    color: red;
+    margin-left: 30px;
+    margin-top: 13px;
+    cursor: pointer;
   }
 }
-/* Small <= 768px */
-  
+
+/* for small device <= 768px */
 @media screen and (max-width: 768px) {
   .main-cards {
     grid-template-columns: 1fr;
@@ -216,12 +198,24 @@ body {
     grid-template-columns: 1fr;
     margin-top: 30px;
   }
+
+  .close-icon {
+    color: red;
+    margin-left: 30px;
+    margin-top: 13px;
+    cursor: pointer;
+  }
 }
 
-/* Extra Small <= 576px */
-
+/* for extra small device <= 576px */
 @media screen and (max-width: 576px) {
-  .hedaer-left {
+  .header-left {
     display: none;
+  }
+  .close-icon {
+    color: rgb(241, 29, 29);
+    margin-left: 30px;
+    margin-top: 13px;
+    cursor: pointer;
   }
 }
